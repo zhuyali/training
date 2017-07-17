@@ -1,0 +1,76 @@
+.div-1 {
+  overflow: hidden;
+}
+
+.title-img {
+  float: left;
+  width: 100px;
+  height: 50px;
+}
+
+.title-text {
+  position: relative;
+  top: 10px;
+}
+
+.title-link {
+  float: right;
+  position: relative;
+  top: 10px;
+  margin-left: 10px;
+}
+
+.div-2 {
+  background-image: url("./butterfly.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 450px;
+}
+
+.first-line {
+  padding-top: 14%;
+  text-align: center;
+}
+
+.second-line {
+  text-align: center;
+  padding: 0 10%;
+}
+
+footer {
+  background-color: white;
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-text-1 {
+  float: right;
+}
+
+.footer-text-2 {
+  clear: right;
+  float: right;
+}
+
+.footer-link {
+  line-height: 2.5;
+}
+
+.title-line {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.flex-img {
+  width: 200px;
+}
+
+.flex-text {
+  text-align: center;
+}
