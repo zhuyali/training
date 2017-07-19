@@ -1,5 +1,12 @@
+body {
+  background-color: linen;
+}
+
 .div-1 {
   overflow: hidden;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: lightskyblue;
 }
 
 .title-img {
@@ -21,39 +28,61 @@
 }
 
 .div-2 {
-  background-image: url("../butterfly.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 450px;
+  margin: 35px 100px 0 100px;
+  overflow: hidden;
+  background-color: white;
 }
 
-.first-line {
-  padding-top: 14%;
-  text-align: center;
+li {
+  list-style-type: none;
 }
 
-.second-line {
-  text-align: center;
-  padding: 0 10%;
+.first-nav > li {
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.first-nav > li:first-child {
+  padding-top: 40px;
+}
+
+.second-nav > li {
+  padding-top: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  float: left;
+  width: 200px;
+}
+
+.content {
+  margin-left: 200px;
+  border-left-color: linen;
+  border-left-width: 3px;
+  border-left-style: solid;
 }
 
 footer {
+  margin-top: 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: white;
-  overflow: hidden;
   text-align: center;
 }
 
-.footer-text-1 {
+.footer-text {
   float: right;
-}
-
-.footer-text-2 {
-  clear: right;
-  float: right;
+  position: relative;
+  top: -41px;
 }
 
 .footer-link {
   line-height: 2.5;
+  padding-left: 10px;
 }
 
 .title-line {
@@ -73,4 +102,35 @@ footer {
 
 .flex-text {
   text-align: center;
+}
+
+.content-title {
+  padding-top: 40px;
+  padding-left: 30px;
+  font-size: 21px;
+}
+
+.content-block {
+  margin-left: 33px;
+  overflow: hidden;
+  padding-bottom: 50px;
+}
+
+.content-block img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 20px;
+}
+
+.content-unit {
+  width: 45%;
+  float: left;
+  margin-top: 30px;
+  padding-right: 4%;
+}
+
+.content-unit-title {
+  margin-bottom: 10px;
+  padding-top: 1px;
 }
