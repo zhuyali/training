@@ -1,0 +1,17 @@
+.header {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.content {
+  display: inline-block;
+  margin-left: 50%;
+  position: relative;
+  left: -56px;
+  padding-top: 15px;
+}
+
+.content li {
+  padding-top: 10px;
+}
