@@ -1,12 +1,24 @@
 body {
-  background-color: linen;
+  background-color: #ececec;
+  font-family: Raleway,Hiragino Sans GB,sans-serif;
+  color: rgba(0,0,0,.65);
+}
+
+a {
+  color: #108ee9;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
 }
 
 .div-1 {
   overflow: hidden;
   padding-left: 100px;
   padding-right: 100px;
-  background-color: lightskyblue;
+  background-color: #fff;
 }
 
 .title-img {
@@ -61,8 +73,8 @@ a {
 
 .content {
   margin-left: 200px;
-  border-left-color: linen;
-  border-left-width: 3px;
+  border-left-color: #e9e9e9;
+  border-left-width: 1px;
   border-left-style: solid;
 }
 
