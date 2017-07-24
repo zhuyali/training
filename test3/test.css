@@ -1,8 +1,6 @@
-.container{
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
+.container{ 
   position: absolute;
+  background: white;
 }
 .wrapper{
   position: absolute;
@@ -27,20 +25,56 @@
 .left{
   left:0;
 }
-.out {
+.circle {
   margin-top: 100px;
+  border:5px solid green;
+  border-radius: 50%;
+  animation: wave 4s infinite 2s linear;
+}
+.out,.circle-out {
+  left: 500px;
+  right: 500px;
+  margin-top: 100px;
+}
+.out{
   width: 200px;
   height: 200px;
+  z-index:200;
+}
+.circle-out {
+  width: 190px;
+  height: 190px;
+  z-index:100;
+}
+.mid,.circle-mid {
+  left: 530px;
+  right: 530px;
+  margin-top: 130px;
 }
 .mid {
-  margin-top: 130px;
   width: 140px;
   height: 140px;
+  z-index:400;
 }
-.in {
+.circle-mid {
+  width: 130px;
+  height: 130px;
+  z-index:300;
+}
+.in, .circle-in {
+  left: 560px;
+  right: 560px;
   margin-top: 160px;
+}
+.in{
   width: 80px;
   height: 80px;
+  z-index:600;
+}
+.circle-in {
+  z-index:500;
+  width: 70px;
+  height: 70px;
 }
 .circleProgress{
   border:5px solid transparent;
@@ -89,21 +123,6 @@
 .leftcircle-in {
   animation: circleProgressLoad_left 2s linear forwards, wave 4s infinite 2s linear;
 }
-.rightcircle-mid {
-  animation: circleProgressLoad_right 1.7s linear forwards, wave 4s infinite 2s linear;
-}
-.rightcircle-in {
-  animation: circleProgressLoad_right 2s linear forwards, wave 4s infinite 2s linear;
-}
-.leftcircle-out {
-  animation: circleProgressLoad_left 1.5s linear forwards, wave 4s infinite 2s linear;
-}
-.leftcircle-mid {
-  animation: circleProgressLoad_left 1.7s linear forwards, wave 4s infinite 2s linear;
-}
-.leftcircle-in {
-  animation: circleProgressLoad_left 2s linear forwards, wave 4s infinite 2s linear;
-}
 @keyframes circleProgressLoad_right{
   0%{
     transform: rotate(45deg);
@@ -121,10 +140,10 @@
   }
 }
 @keyframes wave {
-	from {
-		transform: rotate(225deg) scale(1)
-	}
-	to {
-		transform: rotate(225deg) scale(4)
-	}
+  from {
+    transform: rotate(225deg) scale(1)
+  }
+  to {
+    transform: rotate(225deg) scale(4)
+  }
 }
