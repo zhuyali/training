@@ -1,0 +1,130 @@
+.container{
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.wrapper{
+  position: absolute;
+  top:0;
+  overflow: hidden;
+}
+.wrapper-out{
+  width: 100px;
+  height: 200px;
+}
+.wrapper-mid{
+  width: 70px;
+  height: 140px;
+}
+.wrapper-in{
+  width: 40px;
+  height: 80px;
+}
+.right{
+  right:0;
+}
+.left{
+  left:0;
+}
+.out {
+  margin-top: 100px;
+  width: 200px;
+  height: 200px;
+}
+.mid {
+  margin-top: 130px;
+  width: 140px;
+  height: 140px;
+}
+.in {
+  margin-top: 160px;
+  width: 80px;
+  height: 80px;
+}
+.circleProgress{
+  border:5px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top:0;
+  transform: rotate(-135deg);
+}
+.circleProgress-out{
+  width: 190px;
+  height: 190px;
+}
+.circleProgress-mid{
+  width: 130px;
+  height: 130px;
+}
+.circleProgress-in{
+  width: 70px;
+  height: 70px;
+}
+.rightcircle{
+  border-bottom:5px solid green;
+  border-left:5px solid green;
+  right:0;
+}
+.leftcircle{
+  border-top:5px solid green;
+  border-right:5px solid green;
+  left:0;
+}
+.rightcircle-out {
+  animation: circleProgressLoad_right 1.5s linear forwards, wave 4s infinite 2s linear;
+}
+.rightcircle-mid {
+  animation: circleProgressLoad_right 1.7s linear forwards, wave 4s infinite 2s linear;
+}
+.rightcircle-in {
+  animation: circleProgressLoad_right 2s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-out {
+  animation: circleProgressLoad_left 1.5s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-mid {
+  animation: circleProgressLoad_left 1.7s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-in {
+  animation: circleProgressLoad_left 2s linear forwards, wave 4s infinite 2s linear;
+}
+.rightcircle-mid {
+  animation: circleProgressLoad_right 1.7s linear forwards, wave 4s infinite 2s linear;
+}
+.rightcircle-in {
+  animation: circleProgressLoad_right 2s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-out {
+  animation: circleProgressLoad_left 1.5s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-mid {
+  animation: circleProgressLoad_left 1.7s linear forwards, wave 4s infinite 2s linear;
+}
+.leftcircle-in {
+  animation: circleProgressLoad_left 2s linear forwards, wave 4s infinite 2s linear;
+}
+@keyframes circleProgressLoad_right{
+  0%{
+    transform: rotate(45deg);
+  }
+  50%,100%{
+    transform: rotate(225deg);
+  }
+}
+@keyframes circleProgressLoad_left{
+  0%,50%{
+    transform: rotate(45deg);
+  }
+  100%{
+    transform: rotate(225deg);
+  }
+}
+@keyframes wave {
+	from {
+		transform: rotate(225deg) scale(1)
+	}
+	to {
+		transform: rotate(225deg) scale(4)
+	}
+}
