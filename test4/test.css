@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   min-width: 510px;
+  font-family: "Helvetica Neue", sans-serif;  
 }
 
 a {
@@ -101,7 +102,6 @@ a {
   line-height: 64px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.85);
-  font-family: "Helvetica Neue", sans-serif;
   margin: 0;
 }
 
