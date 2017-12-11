@@ -1,0 +1,217 @@
+html, body {
+  height: 100%;
+  min-width: 510px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#logo {
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 17px;
+}
+
+.logo-button {
+  float: left;
+  margin-top: 20px;
+  margin-left: 60px;
+}
+
+#search-box {
+  float: left;
+  margin-left: 100px;
+  margin-top: 22px;
+}
+
+#search-box img {
+  height: 13px;
+  vertical-align: middle;
+}
+
+#search-box input {
+  border: none;
+  font-size: 14px;
+  margin-left: 10px;
+  background: transparent;
+}
+
+#search-box input:focus, #lang:focus, #version:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1186px) {
+  #nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 747px) {
+  #version {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 636px) {
+  #lang {
+    display: none;
+  }
+}
+  
+
+#nav, #version, #lang {
+  float: right;
+  margin-top: 22px;
+  border-radius: 10%;
+}
+
+#nav .item {
+  display: inline;
+  margin-right: 30px;
+}
+
+#version {
+  margin-right: 30px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+#lang {
+  margin-right: 60px;
+  margin-top: 19px;  
+  font-size: 15px;
+}
+
+.banner {
+  height: 100%;
+  min-height: 700px;
+  background: url("https://gw.alipayobjects.com/zos/rmsportal/UuWvfiYyEArxEECAKvRt.png") no-repeat center / cover;
+}
+
+.banner-text {
+  position: absolute;
+  right: 9%;
+  top: 55%;
+}
+
+.banner-text h2 {
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+.banner-text p {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.banner-text button {
+  height: 40px;
+  border-radius: 100px;
+  margin-right: 16px;
+  font-size: 16px;
+  width: 114px;
+  text-align: center;
+}
+
+.line {
+  width: 2px;
+  height: 96px;
+  position: absolute;
+  background: #d7dce0;
+  top: 16px;
+  left: -25px;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  width: 10px;
+  bottom: 0px;
+  transform: translateX(-10px);
+}
+
+.page {
+  position: relative;
+  min-height: 700px;
+}
+
+.page-img-left, .page-img-right {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page-img-right {
+  right: 0;
+}
+
+.page-text-right, .page-text-left {
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.page-text-left {
+  left: 0;
+  text-align: right;
+}
+
+.page-text-right button, .page-text-left button {
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 114px;
+  text-align: center;
+}
+
+.page-text-right h2, .page-text-left h2, .page-text h2 {
+  font-size: 39px;
+  margin: 0;
+}
+
+.page-text-right p, .page-text-left p, .page-text p {
+  margin: 30px 0;
+  color: gray;
+}
+
+.page-img {
+  width: 700px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page-text {
+  text-align: center;
+  padding-top: 10%;
+}
+
+#footer {
+  position: relative;
+  background: black;
+  color: gray;
+  width: 100%;
+  float: left;
+  height: 70px;
+}
+
+.footer-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100px;
+}
+
+.footer-text span {
+  margin-left: 20px;
+}
