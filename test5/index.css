@@ -1,0 +1,222 @@
+body, html {
+  font-size: 12px;
+  width: 100%;
+  background: #f2f3f4;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-top-left {
+  float: left; 
+}
+
+.header-top-left a {
+  color: #6C6C6C;
+}
+
+.header-top-left a:hover {
+  color: #f39b03;
+}
+
+.header-top-left span:nth-child(2) {
+  color: #aaa;
+  margin-left: 15px;
+}
+
+.header-top-right {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+}
+
+.header-top-right li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.header-top {
+  color: #6C6C6C;
+  background: #f2f2f2;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  line-height: 25px;
+}
+
+.header-top-container, .header-logo-container, .header-trip-box, .header-market,
+.banner {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.header-drop-down {
+  position: relative;
+}
+
+.header-drop-down::after, .header-drop-down::before {
+  border: 4px solid transparent;
+  position: absolute;
+  top: 50%;
+  content: ' ';
+  margin-top: -2px;
+}
+
+.header-drop-down::before {
+  border-top-color: #6C6C6C;
+  right: -9px;
+}
+
+.header-logo-image {
+  width: 230px;
+  height: 53px;
+  float: left;
+}
+
+.header-market-wrapper, .header-logo-wrapper {
+  background: #fff;
+  overflow: hidden;
+}
+
+.header-logo {
+  height: 72px;
+  margin-top: 9px;
+}
+
+.header-logo-tel {
+  float: right;
+}
+
+.header-logo-tel-image {
+  width: 12px;
+  height: 12px;
+}
+
+.header-logo-tel-list {
+  display: inline-block;
+  list-style-type: none;
+  position: relative;
+  right: 100px;
+}
+
+.header-logo-tel-list li {
+  margin: 5px 0;
+}
+
+.header-logo-tel-list li:last-child {
+  padding-left: 16px;
+}
+
+.header-trip {
+  background-color: #ffc900;
+  height: 30px;
+  font-size: 16px;
+  font-family: "pingfang sc","Microsoft YaHei",simsun;
+}
+
+.header-trip-box {
+  padding-left: 0px;
+  padding-top: 6px;
+}
+
+.header-trip-box li {
+  display: inline;
+  margin-right: 8px;
+}
+
+.header-trip-box a {
+  color: black;
+  padding: 0 6px;
+}
+
+.header-trip-box a:hover {
+  background: #fff;
+  border-radius: 4px;
+}
+
+.header-market {
+  line-height: 40px;
+}
+
+.header-market-box {
+  padding: 0;
+  margin: 0;
+}
+
+.header-market-box li {
+  display: inline;
+}
+
+.header-market-content {
+  padding: 0 18px;
+}
+
+.header-market-box a {
+  color: #666;
+  margin-left: 3px;
+}
+
+.header-market-box img {
+  width: 12px;
+  height: 13px;
+  vertical-align: middle;
+}
+
+.header-market-box li:first-child img{
+  width: 70px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.header-market-box li:first-child {
+  padding-bottom: 4px;
+  border-left: solid #ffc900 4px;
+}
+
+.ticket {
+  float: left;
+  width: 682px;
+  background: #fff;
+}
+
+.ticket-nav {
+  margin: 0;
+  float: left;
+  height: 299px;
+  width: 89px;
+  list-style-type: none;
+  padding: 0;
+  line-height: 42px;
+  text-align: center;
+  font-size: 14px;
+  background: #3d3d3d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ticket-nav li:hover {
+  background: #fff;
+  color: #3d3d3d;
+}
+
+.banner {
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.banner > img {
+  float: right;
+  width: 490px;
+  height: 300px;
+}
+
+.ticket-place {
+  margin-left: 89px;
+  list-style-type: none;
+  padding: 0;
+  height: 89px;
+}
+
+.ticket-place li {
+  display: inline;
+}
