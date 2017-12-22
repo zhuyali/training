@@ -8,6 +8,19 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 5px;
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+
+input {
+  outline: none;
+}
+
 .header-top-left {
   float: left; 
 }
@@ -27,8 +40,6 @@ a {
 
 .header-top-right {
   float: right;
-  list-style-type: none;
-  margin: 0;
 }
 
 .header-top-right li {
@@ -45,16 +56,16 @@ a {
 }
 
 .header-top-container, .header-logo-container, .header-trip-box, .header-market,
-.banner {
+.banner, .special {
   width: 1190px;
   margin: 0 auto;
 }
 
-.header-drop-down {
+.drop-down {
   position: relative;
 }
 
-.header-drop-down::after, .header-drop-down::before {
+.drop-down::after, .drop-down::before {
   border: 4px solid transparent;
   position: absolute;
   top: 50%;
@@ -62,7 +73,7 @@ a {
   margin-top: -2px;
 }
 
-.header-drop-down::before {
+.drop-down::before {
   border-top-color: #6C6C6C;
   right: -9px;
 }
@@ -94,9 +105,9 @@ a {
 
 .header-logo-tel-list {
   display: inline-block;
-  list-style-type: none;
   position: relative;
   right: 100px;
+  margin: 12px 0;
 }
 
 .header-logo-tel-list li {
@@ -115,7 +126,7 @@ a {
 }
 
 .header-trip-box {
-  padding-left: 0px;
+  padding-left: 0;
   padding-top: 6px;
 }
 
@@ -140,7 +151,6 @@ a {
 
 .header-market-box {
   padding: 0;
-  margin: 0;
 }
 
 .header-market-box li {
@@ -180,11 +190,9 @@ a {
 }
 
 .ticket-nav {
-  margin: 0;
   float: left;
   height: 299px;
   width: 89px;
-  list-style-type: none;
   padding: 0;
   line-height: 42px;
   text-align: center;
@@ -196,7 +204,7 @@ a {
 
 .ticket-nav li:hover {
   background: #fff;
-  color: #3d3d3d;
+  color: #6c6c6c;
 }
 
 .banner {
@@ -210,13 +218,258 @@ a {
   height: 300px;
 }
 
-.ticket-place {
+.ticket-detail {
+  position: relative;
   margin-left: 89px;
-  list-style-type: none;
+  color: #6c6c6c;
+  height: 299px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.12);;
+}
+
+.ticket-place {
   padding: 0;
-  height: 89px;
+  font-size: 14px;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .ticket-place li {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 15px;
+  line-height: 39px;
+  height: 39px;
+  padding: 0 5px;
+  border-bottom: 3px solid transparent;
+}
+
+.ticket-place li:hover {
+  border-bottom-color: #ffc900;
+}
+
+.ticket-radio {
+  color: #000;
+  padding: 10px 0 0 25px;
+}
+
+.ticket-radio-button {
+  margin-right: 18px;
+}
+
+.ticket-radio-button input {
+  margin-right: 6px;
+}
+
+.ticket-radio-label {
+  float: right;
+  margin-right: 25px;
+  color: #f39b03;
+}
+
+.ticket-radio-label:hover {
+  text-decoration: underline;
+}
+
+.ticket-info {
+  padding-left: 25px;
+}
+
+.ticket-info input {
+  width: 250px;
+  padding: 0 5px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.ticket-info-city {
+  margin-right: 28px;
+}
+
+.ticket-info-detail {
+  display: inline-block;
+}
+
+.ticket-info-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.ticket-about {
+  background: #f2f3f4;
+  line-height: 24px;
+}
+
+.ticket-about li {
   display: inline;
+}
+
+.ticket-info-ad {
+  position: absolute;
+  left: 22px;
+  bottom: 46px;
+}
+
+.ticket-info-search {
+  position: absolute;
+  bottom: 53px;
+  right: 22px;
+  width: 160px;
+  background: #FFC300;
+  font-size: 16px;
+  padding: 8px 8px; 
+  text-align: center;
+  border-radius: 4px;
+  color: #3d3d3d;
+  box-shadow: 0 2px 0 #EEB600;
+}
+
+.special-title {
+  margin-top: 10px;
+  height: 48px;
+  background: #fbfbfb;
+  padding: 0 12px 0 18px;
+  line-height: 48px;
+}
+
+.special-title-list {
+  display: inline-block;
+  margin-left: 44px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.special-title-list li {
+  display: inline-block;
+  line-height: 36px;
+  margin-right: 10px;
+  border: 4px solid transparent;
+  cursor: pointer;
+}
+
+.special-title-list li:hover {
+  border-bottom-color: #EEB600;
+}
+
+.special-logo {
+  background: url(//gw.alicdn.com/tfs/TB1oLOePXXXXXbnXFXXXXXXXXXX-36-336.png) no-repeat;
+  width: 18px;
+  background-size: 18px auto;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+.special-title-label {
+  display: inline;
+}
+
+.special-more {
+  float: right;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.special-more img {
+  width: 12px;
+  height: 12px;
+}
+
+.special-content-wrapper {
+  padding: 0 0 6px 12px;
+  background: white;
+}
+
+.special-choose span {
+  margin: 17px 0;
+  display: inline-block;
+  height: 20xp;
+  line-height: 20px;
+  margin-right: 28px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+
+.special-choose span:hover {
+  background: #ffc900;
+  font-weight: 800;
+}
+
+.special-choose label {
+  margin-right: 28px;
+  padding-left: 12px;
+  border-left: solid #ffc900 4px;
+  cursor: pointer;
+}
+
+.special-content-detail {
+  position: relative;
+}
+
+.detail-content {
+  display: inline-block;
+  width: 228px;
+  margin: 0 3px 6px 0;
+  cursor: pointer;
+}
+
+.detail-content:hover {
+  box-shadow: 0 2px 2px rgba(0,0,0,.12);
+}
+
+.detail-content img {
+  width: 100%;
+}
+
+.detail-content-list {
+  padding-left: 0;
+  width: 936px;
+}
+
+.destination {
+  position: absolute;
+  padding: 1px 6px;
+  background: #ffc900;
+  color: #3d3d3d;
+}
+
+.content-description {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 23px;
+  text-align: center;
+  height: 40px;
+  overflow: hidden;
+  margin: 12px 12px 5px;
+}
+
+.detail-item-info {
+  border: 1px solid #f2f3f4;
+  border-top-width: 0;
+}
+
+.item-price {
+  margin-top: 26px;
+  padding: 0 12px 12px;
+  height: 17px;
+  line-height: 17px;
+}
+
+.sale-info {
+  float: right;
+  color: #a5a5a5;
+}
+
+.price {
+  font-size: 16px;
+  font-family: "pingfang sc",Arial;
+  color: #ff5741;
+}
+
+.special-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 12px;
 }
