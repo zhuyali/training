@@ -274,17 +274,21 @@ input {
 }
 
 .ticket-info input {
-  width: 250px;
   padding: 0 5px;
   height: 30px;
   font-size: 14px;
+  width: 246px;
+  border: 1px solid #c7d1e4;
+  border-radius: 3px;
+  background: url(//img.alicdn.com/tps/i1/TB1H3zaFVXXXXXUXpXXPqXt1pXX-1000-500.png) no-repeat;
 }
 
 .ticket-info-city {
-  margin-right: 28px;
+  margin-right: 32px;
 }
 
 .ticket-info-detail {
+  width: 250px;
   display: inline-block;
 }
 
@@ -294,13 +298,39 @@ input {
   width: 100%;
 }
 
+.ticket-info-bottom img {
+  height: 24px;
+  width: 14px;
+  position: absolute;
+}
+
 .ticket-about {
+  position: relative;
+  color: #a5a5a5;
   background: #f2f3f4;
   line-height: 24px;
+  padding: 3px 0 3px 24px;
 }
 
 .ticket-about li {
   display: inline;
+  cursor: pointer;
+}
+
+.ticket-about li:hover {
+  text-decoration: underline;
+}
+
+.ticket-about li::after {
+  content: "  |";
+}
+
+.ticket-about li:last-child::after, .ticket-about li:first-child::after {
+  content: "";
+}
+
+.ticket-about li:nth-child(2) {
+  margin-left: 20px;
 }
 
 .ticket-info-ad {
