@@ -57,7 +57,7 @@ input {
 }
 
 .header-top-container, .header-logo-container, .header-trip-box, .header-market,
-.banner, .special, .market {
+.banner, .special, .market, .around {
   width: 1190px;
   margin: 0 auto;
 }
@@ -85,7 +85,8 @@ input {
   float: left;
 }
 
-.header-market-wrapper, .header-logo-wrapper {
+.header-market-wrapper, .header-logo-wrapper, .around-wrapper,
+.special-content-wrapper, .market-content-wrapper {
   background: #fff;
   overflow: hidden;
 }
@@ -372,8 +373,8 @@ input {
   border-bottom-color: #EEB600;
 }
 
-.special-logo {
-  background: url(//gw.alicdn.com/tfs/TB1oLOePXXXXXbnXFXXXXXXXXXX-36-336.png) no-repeat;
+.special-logo, .around-logo {
+  background: url(https://gw.alicdn.com/tfs/TB1oLOePXXXXXbnXFXXXXXXXXXX-36-336.png) no-repeat;
   width: 18px;
   background-size: 18px auto;
   height: 20px;
@@ -382,39 +383,37 @@ input {
   top: 3px;
 }
 
-.special-title-label {
+.special-title-label, .around-title-label {
   display: inline;
 }
 
-.special-more {
+.special-more, .around-more {
   float: right;
   font-size: 14px;
   font-weight: 300;
   cursor: pointer;
 }
 
-.special-more img {
+.special-more img, .around-more img {
   width: 12px;
   height: 12px;
 }
 
-.special-content-wrapper, .market-content-wrapper {
+.special-content-wrapper, .market-content-wrapper, .around-wrapper {
   padding: 0 0 6px 12px;
-  background: white;
-  overflow: hidden;
 }
 
-.special-choose span {
+.special-choose span, .area-choose span {
   margin: 17px 0;
   display: inline-block;
-  height: 20xp;
+  height: 20px;
   line-height: 20px;
   margin-right: 28px;
   padding: 0 6px;
   cursor: pointer;
 }
 
-.special-choose span:hover {
+.special-choose span:hover, .area-choose span:hover {
   background: #ffc900;
   font-weight: 800;
 }
@@ -618,7 +617,7 @@ input {
   width: 468px;
 }
 
-.local-play-href, .national-tickets-href {
+.local-play-href, .national-tickets-href, .entrance-ticket-title, .ranking-title {
   cursor: pointer;
   padding-left: 16px;
   margin: 17px 0;
@@ -633,7 +632,7 @@ input {
   vertical-align: middle;
 }
 
-.local-play-list li, .national-tickets-list li {
+.local-play-list li, .national-tickets-list li, .entrance-ticket-list li {
   position: relative;
   display: inline-block;
   background-image: url(//img.alicdn.com/bao/uploaded/i1/100000302774216613/TB228ILXH1K.eBjSszbXXcTHpXa_!!0-0-travel.jpg_360x360.jpg);
@@ -642,9 +641,10 @@ input {
   height: 146px;
   background-repeat: no-repeat;
   margin: 0 2px 4px 0;
+  cursor: pointer;
 }
 
-.local-play-item, .national-tickets-item {
+.local-play-item, .national-tickets-item, .entrance-ticket-item {
   position: absolute;
   width: 100%;
   left: 0;
@@ -675,3 +675,113 @@ input {
 .local-item-price span {
   color: #ff5741;
 }
+
+.around-logo {
+  background-position: 0 -74px;
+}
+
+.entrance-ticket {
+  float: left;
+  width: 930px;
+}
+
+.entrance-ticket-title, .ranking-title {
+  cursor: auto;
+}
+
+.ticket-place-list {
+  display: inline-block;
+}
+
+.ticket-place-list li {
+  display: inline-block;
+  cursor: pointer;
+  color: #e90;
+  padding: 0 6px;
+}
+
+.ticket-place-list li:hover {
+  background: #ffc900;
+  font-weight: 800;
+  color: #3d3d3d;
+}
+
+.entrance-ticket-list li:last-child, .entrance-ticket-list li:nth-child(4) {
+  margin-right: 0;
+}
+
+.ranking {
+  float: right;
+  width: 228px;
+  margin-right: 12px;
+}
+
+.ranking-title span {
+  float: left;
+}
+
+.area-choose {
+  float: right;
+}
+
+.area-choose span {
+  margin: 0;
+}
+
+.ranking-icon {
+  float: left;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+}
+
+.ranking-description {
+  float: left;
+  margin-left: 20px;
+}
+
+.ranking-ribbon {
+  width: 49px;
+  height: 18px;
+  position: absolute;
+  top: 21px;
+  right: 0;
+}
+
+.ranking-list {
+  background: #fafafa;
+  font-size: 14px;
+}
+
+.ranking-list-item {
+  position: relative;
+  padding: 6px 0 6px 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ranking-name {
+  line-height: 2;
+}
+
+.ranking-price {
+  color: #ff5741;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.today-ok, .play-only {
+  margin: 2px 12px;
+  float: left;
+  padding: 0 2px;
+  height: 16px;
+  border: 1px solid #EE9900;
+  color: #EE9900;
+  line-height: 16px;
+}
+
+.play-only {
+  border-color: #A5A5A5;
+  color: #666666;
+}
+
