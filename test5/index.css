@@ -15,6 +15,7 @@ p {
 ul {
   margin: 0;
   list-style-type: none;
+  padding-left: 0;
 }
 
 input {
@@ -56,7 +57,7 @@ input {
 }
 
 .header-top-container, .header-logo-container, .header-trip-box, .header-market,
-.banner, .special {
+.banner, .special, .market {
   width: 1190px;
   margin: 0 auto;
 }
@@ -126,7 +127,6 @@ input {
 }
 
 .header-trip-box {
-  padding-left: 0;
   padding-top: 6px;
 }
 
@@ -353,14 +353,6 @@ input {
   box-shadow: 0 2px 0 #EEB600;
 }
 
-.special-title {
-  margin-top: 10px;
-  height: 48px;
-  background: #fbfbfb;
-  padding: 0 12px 0 18px;
-  line-height: 48px;
-}
-
 .special-title-list {
   display: inline-block;
   margin-left: 44px;
@@ -406,9 +398,10 @@ input {
   height: 12px;
 }
 
-.special-content-wrapper {
+.special-content-wrapper, .market-content-wrapper {
   padding: 0 0 6px 12px;
   background: white;
+  overflow: hidden;
 }
 
 .special-choose span {
@@ -453,7 +446,6 @@ input {
 }
 
 .detail-content-list {
-  padding-left: 0;
   width: 936px;
 }
 
@@ -502,4 +494,184 @@ input {
   top: 0;
   right: 0;
   margin-right: 12px;
+}
+
+.title {
+  margin-top: 10px;
+  height: 48px;
+  background: #fbfbfb;
+  padding: 0 12px 0 18px;
+  line-height: 48px;
+}
+
+.market-logo {
+  width: 78px;
+  vertical-align: middle;
+}
+
+.market-service-list {
+  display: inline-block;
+  padding-left: 24px;
+}
+
+.market-service-list li {
+  display: inline;
+  margin-right: 22px;
+}
+
+.market-service-list img {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.hot-place {
+  float: right;
+}
+
+.hot-place-list {
+  display: inline-block;
+}
+
+.hot-place-list li {
+  display: inline;
+  padding: 0 6px;
+  color: #e90;
+  cursor: pointer;
+}
+
+.market-search {
+  float: right;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  color: #3d3d3d;
+  border-radius: 100px;
+  text-align: center;
+  background: #e1e1e1;
+  margin: 9px 0 0 12px;
+}
+
+.market-search img {
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+.category {
+  padding-top: 12px;
+}
+
+.category-item {
+  position: relative;
+  display: inline-block;
+  width: 226px;
+  height: 60px;
+  color: #a5a5a5;
+  border: 1px solid #f2f3f4;
+  border-radius: 100px;
+  line-height: 22px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.category-item-image {
+  width: 54px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.category-item-image img {
+  width: 23px;
+  height: 23px;
+}
+
+.category-item-description {
+  position: absolute;
+  left: 54px;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.item-begin-price span {
+  color: #ff5741;
+}
+
+.item-content {
+  color: #3d3d3d;
+}
+
+.local-play {
+  float: left;
+  width: 702px;
+  height: 358px;
+}
+
+.national-tickets {
+  float: left;
+  width: 468px;
+}
+
+.local-play-href, .national-tickets-href {
+  cursor: pointer;
+  padding-left: 16px;
+  margin: 17px 0;
+  height: 20px;
+  line-height: 20px;
+  border-left: solid #ffc900 4px;
+}
+
+.local-play-href img, .national-tickets-href img {
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+}
+
+.local-play-list li, .national-tickets-list li {
+  position: relative;
+  display: inline-block;
+  background-image: url(//img.alicdn.com/bao/uploaded/i1/100000302774216613/TB228ILXH1K.eBjSszbXXcTHpXa_!!0-0-travel.jpg_360x360.jpg);
+  background-position: center top;
+  width: 228px;
+  height: 146px;
+  background-repeat: no-repeat;
+  margin: 0 2px 4px 0;
+}
+
+.local-play-item, .national-tickets-item {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: left;
+  padding-top: 12px;
+  background-image: linear-gradient(-180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 100%);
+}
+
+.item-title {
+  text-overflow: ellipsis;
+  width: 204px;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 14px;
+  margin: 0 12px 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.local-item-price {
+  padding: 0 12px 6px;
+  font-size: 16px;
+  font-family: "pingfang sc",Arial;
+  color: #a5a5a5;
+}
+
+.local-item-price span {
+  color: #ff5741;
 }
