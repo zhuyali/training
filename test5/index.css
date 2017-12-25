@@ -57,7 +57,7 @@ input {
 }
 
 .header-top-container, .header-logo-container, .header-trip-box, .header-market,
-.banner, .special, .market, .around {
+.banner, .special, .market, .around, .hotel, .flight, .advertise, .relative-company {
   width: 1190px;
   margin: 0 auto;
 }
@@ -85,8 +85,8 @@ input {
   float: left;
 }
 
-.header-market-wrapper, .header-logo-wrapper, .around-wrapper,
-.special-content-wrapper, .market-content-wrapper {
+.header-market-wrapper, .header-logo-wrapper, .around-wrapper, .flight-wrapper,
+.special-content-wrapper, .market-content-wrapper, .hotel-wrapper {
   background: #fff;
   overflow: hidden;
 }
@@ -354,14 +354,14 @@ input {
   box-shadow: 0 2px 0 #EEB600;
 }
 
-.special-title-list {
+.special-title-list, .hotel-title-list, .flight-title-list {
   display: inline-block;
   margin-left: 44px;
   font-size: 14px;
   font-weight: 300;
 }
 
-.special-title-list li {
+.special-title-list li, .hotel-title-list li, .flight-title-list li {
   display: inline-block;
   line-height: 36px;
   margin-right: 10px;
@@ -369,11 +369,11 @@ input {
   cursor: pointer;
 }
 
-.special-title-list li:hover {
+.special-title-list li:hover, .hotel-title-list li:hover, .flight-title-list li:hover {
   border-bottom-color: #EEB600;
 }
 
-.special-logo, .around-logo {
+.special-logo, .around-logo, .hotel-logo, .flight-logo {
   background: url(https://gw.alicdn.com/tfs/TB1oLOePXXXXXbnXFXXXXXXXXXX-36-336.png) no-repeat;
   width: 18px;
   background-size: 18px auto;
@@ -383,23 +383,27 @@ input {
   top: 3px;
 }
 
-.special-title-label, .around-title-label {
+.special-title-label, .around-title-label, .hotel-title-label, .flight-title-label {
   display: inline;
 }
 
-.special-more, .around-more {
+.special-more, .around-more, .hotel-more, .flight-more {
   float: right;
   font-size: 14px;
   font-weight: 300;
   cursor: pointer;
 }
 
-.special-more img, .around-more img {
+.flight-more {
+  margin-right: 12px;
+}
+
+.special-more img, .around-more img, .hotel-more img, .flight-more img {
   width: 12px;
   height: 12px;
 }
 
-.special-content-wrapper, .market-content-wrapper, .around-wrapper {
+.special-content-wrapper, .market-content-wrapper, .around-wrapper, .hotel-wrapper, .flight-wrapper {
   padding: 0 0 6px 12px;
 }
 
@@ -465,6 +469,15 @@ input {
   margin: 12px 12px 5px;
 }
 
+.hotel-info {
+  height: 19px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 12px 12px 3px;
+}
+
 .detail-item-info {
   border: 1px solid #f2f3f4;
   border-top-width: 0;
@@ -482,13 +495,13 @@ input {
   color: #a5a5a5;
 }
 
-.price {
+.price, .hotel-price span, .flight-price span, .local-item-price span {
   font-size: 16px;
   font-family: "pingfang sc",Arial;
   color: #ff5741;
 }
 
-.special-banner {
+.special-banner, .hotel-filter {
   position: absolute;
   top: 0;
   right: 0;
@@ -617,7 +630,8 @@ input {
   width: 468px;
 }
 
-.local-play-href, .national-tickets-href, .entrance-ticket-title, .ranking-title {
+.local-play-href, .national-tickets-href, .entrance-ticket-title,
+.ranking-title, .hotel-city-title, .city-choose {
   cursor: pointer;
   padding-left: 16px;
   margin: 17px 0;
@@ -661,19 +675,13 @@ input {
   white-space: nowrap;
   font-size: 14px;
   margin: 0 12px 5px;
-  text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.local-item-price {
+.local-item-price, .hotel-price, .flight-price {
   padding: 0 12px 6px;
-  font-size: 16px;
   font-family: "pingfang sc",Arial;
   color: #a5a5a5;
-}
-
-.local-item-price span {
-  color: #ff5741;
 }
 
 .around-logo {
@@ -689,18 +697,18 @@ input {
   cursor: auto;
 }
 
-.ticket-place-list {
+.ticket-place-list, .hotel-city-list {
   display: inline-block;
 }
 
-.ticket-place-list li {
+.ticket-place-list li, .hotel-city-list li {
   display: inline-block;
   cursor: pointer;
   color: #e90;
   padding: 0 6px;
 }
 
-.ticket-place-list li:hover {
+.ticket-place-list li:hover, .hotel-city-list li:hover {
   background: #ffc900;
   font-weight: 800;
   color: #3d3d3d;
@@ -785,3 +793,181 @@ input {
   color: #666666;
 }
 
+.hotel-logo {
+  background-position: 0 -97px;
+}
+
+.hotel-type {
+  color: #a5a5a5;
+  margin: 0 0 6px 12px;
+}
+
+.hotel-price {
+  padding: 0 12px 12px;
+}
+
+.hotel-filter {
+  background: #fafafa;
+  width: 228px;
+  font-size: 14px;
+}
+
+.mod {
+  height: 157px;
+  line-height: 2;
+}
+
+.mod-title {
+  border-top: 6px solid #ffc900;
+  color: #e90;
+  font-size: 16px;
+  padding: 6px 0 0 12px;
+}
+
+.mod-list {
+  padding-left: 12px;
+}
+
+.mod-list li {
+  width: 108px;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mod-list a {
+  color: #666;
+}
+
+.flight-logo {
+  background-position: 0 -121px;
+}
+
+.flight-title-right {
+  float: right;
+  height: 48px;
+  color: #e90;
+  padding-left: 10px;
+}
+
+.city-choose {
+  cursor: auto;
+}
+
+.city-choose-input {
+  display: inline-block;
+  overflow: hidden;
+  width: 79px;
+  height: 20px;
+  border: 1px solid #f2f3f4;
+  color: black;
+}
+
+.flight-select, .flight-city {
+  border: 0 none;
+  background: white;
+}
+
+.flight-select {
+  margin-left: -5px;
+}
+
+.ticket-item {
+  float: left;
+  padding: 12px;
+  width: 204px;
+  margin: 6px 6px 0 0;
+  background: #fbfbfb;
+  height: 46px;
+  color: #3d3d3d;
+  position: relative;
+}
+
+.route {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.oneway {
+  transform: rotateX(180deg);
+  width: 20px;
+  height: 20px;
+  vertical-align: sub;
+}
+
+.flight-price {
+  display: inline-block;
+  padding: 0;
+}
+
+.flight-time {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  right: 12px;
+  color: #a5a5a5;
+}
+
+.advertise {
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 40px 0;
+  color: #3d3d3d;
+  border-top: 3px solid #ffc300;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.ad-header {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0 0 15px;
+  font-family: "Microsoft YaHei",simsun;
+}
+
+.ad-block-sm {
+  width: 21%;
+  float: left;
+  border-right: 1px solid #e8e8e8;
+}
+
+.ad-block-lg {
+  width: 35%;
+  float: right;
+}
+.ad-block-lg img {
+  float: right;
+}
+
+.ad-block-wrapper {
+  padding: 0 5px 0 25px;
+}
+
+.ad-content li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.ad-content li:hover {
+  text-decoration: underline;
+}
+
+.relative-company {
+  line-height: 26px;
+  color: #6c6c6c;
+  border-bottom: 1px dashed #e8e8e8;
+}
+
+.relative-company li {
+  display: inline-block;
+}
+
+.relative-company li::after {
+  content: ' | ';
+}
+
+.relative-company li:last-child::after {
+  content: '';
+}
