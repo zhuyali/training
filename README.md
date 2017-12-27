@@ -1,2 +1,3 @@
 # training
-css daily training
+
+Front-End daily training

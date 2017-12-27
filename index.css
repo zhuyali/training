@@ -1,17 +1,21 @@
 .header {
-    text-align: center;
-    font-size: 40px;
-    margin-top: 20px;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 20px;
 }
 
 .content {
-  display: inline-block;
-  margin-left: 50%;
-  position: relative;
-  left: -56px;
-  padding-top: 15px;
+  margin: 30px auto;
+  width: 280px;
+  list-style-type: none;
 }
 
 .content li {
   padding-top: 10px;
+}
+
+.content a {
+  color: black;
+  text-decoration: none;
+  outline: none;
 }
