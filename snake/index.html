@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+  </head>
+  <body>
+    <canvas id="cv" width="600" height="600"></canvas>
+    <div id="container">
+      <div class="input-div">
+        <label>Rows:</label>
+        <input class="rows" type="number" value="40"/>
+      </div>
+      <div class="input-div">
+        <label>Columns:</label>
+        <input class="cols" type="number" value="40" />
+      </div>
+      <div class="input-div">
+        <label>Rapid(ms):</label>
+        <input class="rapid" type="number" value="200" />
+      </div>
+      <button class="button">Start</button>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
