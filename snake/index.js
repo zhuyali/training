@@ -6,7 +6,7 @@ context.strokeStyle = '#eee';
 const width = parseInt(canvas.getAttribute('width'));
 const height = parseInt(canvas.getAttribute('height'));
 
-const randomRect = function(xMax = map.columns + 1, yMax = map.rows + 1, min = 1) {
+const randomRect = function(xMax = game.map.columns + 1, yMax = game.map.rows + 1, min = 1) {
   let x = Math.floor(Math.random() * (yMax - min)) + min;
   let y = Math.floor(Math.random() * (xMax - min)) + min;
   return {'x': x - 1, 'y': y - 1};
@@ -68,12 +68,12 @@ Food.prototype.generate = function() {
     coordinate = randomRect();
     x = coordinate.x;
     y = coordinate.y;
-    rect = map.mapArray[x][y];
+    rect = game.map.mapArray[x][y];
   }
   while(rect.isSnake);
   rect.isFood = true;
   context.fillStyle = '#eee';
-  context.fillRect(rect.x + 0.5, rect.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
+  context.fillRect(rect.x + 0.5, rect.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
 }
 
 const Snake = function() {
@@ -86,11 +86,11 @@ const Snake = function() {
 }
 
 Snake.prototype.init = function() {
-  let coordinate = randomRect(map.columns, map.rows, 2);
+  let coordinate = randomRect(game.map.columns, game.map.rows, 2);
   let x = coordinate.x;
   let y = coordinate.y;
-  map.mapArray[x][y].isSnake = true;
-  this.bodyArray.push({'x':x, 'y':y, 'body':map.mapArray[x][y]});
+  game.map.mapArray[x][y].isSnake = true;
+  this.bodyArray.push({'x':x, 'y':y, 'body':game.map.mapArray[x][y]});
 }
 
 Snake.prototype.draw = function() {
@@ -98,7 +98,7 @@ Snake.prototype.draw = function() {
   context.fillStyle = '#000';
   for(let i = 0; i < this.bodyArray.length; i++) {
     let body = this.bodyArray[i].body;
-    context.fillRect(body.x + 0.5, body.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
+    context.fillRect(body.x + 0.5, body.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
   }
 }
 
@@ -111,25 +111,25 @@ Snake.prototype.move = function() {
       this.bodyArray.splice(0, 0, {'x':this.nextRect.x, 'y':this.nextRect.y, 'body':rect});
       rect.isFood = false;
       rect.isSnake = true;
-      food.generate();
-      context.clearRect(rect.x + 0.5, rect.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
+      game.food.generate();
+      context.clearRect(rect.x + 0.5, rect.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
       context.fillStyle = '#000';
-      context.fillRect(rect.x + 0.5, rect.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
+      context.fillRect(rect.x + 0.5, rect.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
     } else if(rect.isSnake) {
       this.stop();
-      clearInterval(interval);
+      clearInterval(game.interval);
     } else {
       this.bodyArray.splice(0, 0, {'x':this.nextRect.x, 'y':this.nextRect.y, 'body':rect});
       let tail = this.bodyArray.pop();
-      let tailRect = map.mapArray[tail.x][tail.y];
+      let tailRect = game.map.mapArray[tail.x][tail.y];
       tailRect.isSnake = false;
       rect.isSnake = true;
-      context.clearRect(tailRect.x + 0.5, tailRect.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
-      context.fillRect(rect.x + 0.5, rect.y + 0.5, map.rectWidth - 1, map.rectHeight - 1);
+      context.clearRect(tailRect.x + 0.5, tailRect.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
+      context.fillRect(rect.x + 0.5, rect.y + 0.5, game.map.rectWidth - 1, game.map.rectHeight - 1);
     }
   } else {
     this.stop();
-    clearInterval(interval);
+    clearInterval(game.interval);
   }
 }
 
@@ -140,28 +140,28 @@ Snake.prototype.nextStep = function() {
       this.nextRect = {
         'x': snakeHead.x,
         'y': snakeHead.y - 1,
-        'body': snakeHead.y - 1 >= 0 ? map.mapArray[snakeHead.x][snakeHead.y - 1] : null
+        'body': snakeHead.y - 1 >= 0 ? game.map.mapArray[snakeHead.x][snakeHead.y - 1] : null
       };
       break;
     case 38:
       this.nextRect = {
         'x': snakeHead.x - 1,
         'y': snakeHead.y,
-        'body': snakeHead.x - 1 >= 0 ? map.mapArray[snakeHead.x - 1][snakeHead.y] : null
+        'body': snakeHead.x - 1 >= 0 ? game.map.mapArray[snakeHead.x - 1][snakeHead.y] : null
       };
       break;
     case 39:
       this.nextRect = {
         'x': snakeHead.x,
         'y': snakeHead.y + 1,
-        'body': snakeHead.y + 1 <= map.columns - 1 ? map.mapArray[snakeHead.x][snakeHead.y + 1] : null
+        'body': snakeHead.y + 1 <= game.map.columns - 1 ? game.map.mapArray[snakeHead.x][snakeHead.y + 1] : null
       };
       break;
     case 40:
       this.nextRect = {
         'x': snakeHead.x + 1,
         'y': snakeHead.y,
-        'body': snakeHead.x + 1 <= map.rows - 1 ? map.mapArray[snakeHead.x + 1][snakeHead.y] : null
+        'body': snakeHead.x + 1 <= game.map.rows - 1 ? game.map.mapArray[snakeHead.x + 1][snakeHead.y] : null
       };
       break;
   }
@@ -174,43 +174,54 @@ Snake.prototype.stop = function() {
   context.fillText(`Your score is ${this.length}`, 190, 300);
 }
 
-var interval = null;
-var redrawMap = false;
-var map = new Map();
-const food = new Food();
-const snake = new Snake();
-map.draw();
+const Game = function() {
+  this.interval = null;
+  this.redrawMap = false;
+  this.map = new Map();
+  this.food = new Food();
+  this.snake = new Snake();
+  this.map.draw();
+}
+
+Game.prototype.start = function() {
+  let that = this;
+  this.food.generate();
+  this.snake.draw();
+  this.snake.start = true;
+  this.interval = setInterval(function() {
+    that.snake.move();
+  }, this.snake.rapid);
+}
+
+const game = new Game();
 
 $('#container').delegate('input', 'change', function(e) {
   let target = $(e.target);
   let inputClass = target.attr('class');
-  if(!snake.start) {
+  if(!game.snake.start) {
     switch(inputClass) {
       case 'rapid':
-        snake.rapid = parseInt(target.value);
+        game.snake.rapid = parseInt(target.value);
         break;
       case 'rows':
-        map.rows = parseInt(target[0].value);
-        redrawMap = true;
+        game.map.rows = parseInt(target[0].value);
+        game.redrawMap = true;
         break;
       case 'cols':
-        map.columns = parseInt(target[0].value);
-        redrawMap = true;
+        game.map.columns = parseInt(target[0].value);
+        game.redrawMap = true;
         break;
     }
   }
 });
 
 $('.button').on('click', function(e) {
-  context.clearRect(0, 0, width, height);
-  map = new Map(map.rows, map.columns);
-  map.draw();
-  food.generate();
-  snake.draw();
-  snake.start = true;
-  interval = setInterval(function() {
-    snake.move();
-  }, snake.rapid);
+  if(game.redrawMap) {
+    context.clearRect(0, 0, width, height);
+    game.map = new Map(game.map.rows, game.map.columns);
+    game.map.draw();
+  }
+  game.start();
   $('.button').attr('disabled', 'true');
 });
 
@@ -218,23 +229,23 @@ document.onkeydown = function(e) {
   let event = e || window.event;
   switch(event.keyCode) {
     case 37:
-      if (snake.direc != 39) {
-        snake.direc = 37;
+      if (game.snake.direc != 39) {
+        game.snake.direc = 37;
       }
       break;
     case 38:
-      if (snake.direc != 40) {
-        snake.direc = 38;
+      if (game.snake.direc != 40) {
+        game.snake.direc = 38;
       }
       break;
     case 39:
-      if (snake.direc != 37) {
-        snake.direc = 39;
+      if (game.snake.direc != 37) {
+        game.snake.direc = 39;
       }
       break;
     case 40:
-      if (snake.direc != 38) {
-        snake.direc = 40;
+      if (game.snake.direc != 38) {
+        game.snake.direc = 40;
       }
       break;
   }
