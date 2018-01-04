@@ -19,7 +19,7 @@ const Rect = function(x, y) {
   this.isFood = false;
 }
 
-const Map = function(rows = 40, columns = 40) {
+const Map = function(rows = 20, columns = 20) {
   this.rows = rows; //网格行数
   this.columns = columns; //网格列数
 }
@@ -77,14 +77,16 @@ Food.prototype.generate = function() {
   context.fillRect(rect.x + 0.5, rect.y + 0.5, this.map.rectWidth - 1, this.map.rectHeight - 1);
 }
 
-const Snake = function(map) {
+const Snake = function(map, food, rapid = 150) {
   this.length = 1; //身体长度
   this.bodyArray = [];
   this.direc = 39;//37-左，38-上，39-右，40-下
   this.nextRect = null;
-  this.rapid = 200;
+  this.rapid = rapid;
   this.start = false;
+  this.next = true;
   this.map = map;
+  this.food = food;
 }
 
 Snake.prototype.init = function() {
@@ -113,7 +115,7 @@ Snake.prototype.move = function() {
       this.bodyArray.splice(0, 0, {'x':this.nextRect.x, 'y':this.nextRect.y, 'body':rect});
       rect.isFood = false;
       rect.isSnake = true;
-      game.food.generate();
+      this.food.generate();
       context.clearRect(rect.x + 0.5, rect.y + 0.5, this.map.rectWidth - 1, this.map.rectHeight - 1);
       context.fillStyle = '#000';
       context.fillRect(rect.x + 0.5, rect.y + 0.5, this.map.rectWidth - 1, this.map.rectHeight - 1);
@@ -133,6 +135,7 @@ Snake.prototype.move = function() {
     this.stop();
     clearInterval(game.interval);
   }
+  this.next = true;
 }
 
 Snake.prototype.nextStep = function() {
@@ -176,11 +179,11 @@ Snake.prototype.stop = function() {
   context.fillText(`Your score is ${this.length}`, 190, 300);
 }
 
-const Game = function(map) {
+const Game = function(map, rapid) {
   this.interval = null;
   this.map = map;
-  this.snake = new Snake(this.map);
   this.food = new Food(this.map);
+  this.snake = new Snake(this.map, this.food, rapid);
 }
 
 Game.prototype.start = function() {
@@ -195,16 +198,17 @@ Game.prototype.start = function() {
 }
 
 var map = new Map();
-map.draw();
+var rapid = 200;
 var game = null;
+map.draw();
 
 $('#container').delegate('input', 'change', function(e) {
   let target = $(e.target);
   let inputClass = target.attr('class');
-  if(!game || (game && !game.snake.start)) {
+  if(!game) {
     switch(inputClass) {
       case 'rapid':
-        game.snake.rapid = parseInt(target.value);
+        rapid = parseInt(target.value);
         break;
       case 'rows':
         map.rows = parseInt(target[0].value);
@@ -221,33 +225,36 @@ $('#container').delegate('input', 'change', function(e) {
 });
 
 $('.button').on('click', function(e) {
-  game = new Game(map);
+  game = new Game(map, rapid);
   game.start();
   $('.button').attr('disabled', 'true');
 });
 
 document.onkeydown = function(e) {
   let event = e || window.event;
-  switch(event.keyCode) {
-    case 37:
-      if (game && game.snake.direc != 39) {
-        game.snake.direc = 37;
-      }
-      break;
-    case 38:
-      if (game && game.snake.direc != 40) {
-        game.snake.direc = 38;
-      }
-      break;
-    case 39:
-      if (game && game.snake.direc != 37) {
-        game.snake.direc = 39;
-      }
-      break;
-    case 40:
-      if (game && game.snake.direc != 38) {
-        game.snake.direc = 40;
-      }
-      break;
+  if(game && game.snake.next) {
+    game.snake.next = false;
+    switch(event.keyCode) {
+      case 37:
+        if (game && game.snake.direc != 39) {
+          game.snake.direc = 37;
+        }
+        break;
+      case 38:
+        if (game && game.snake.direc != 40) {
+          game.snake.direc = 38;
+        }
+        break;
+      case 39:
+        if (game && game.snake.direc != 37) {
+          game.snake.direc = 39;
+        }
+        break;
+      case 40:
+        if (game && game.snake.direc != 38) {
+          game.snake.direc = 40;
+        }
+        break;
+    }
   }
 }
