@@ -83,7 +83,6 @@ const Snake = function(map, food, rapid = 150) {
   this.direc = 39;//37-左，38-上，39-右，40-下
   this.nextRect = null;
   this.rapid = rapid;
-  this.start = false;
   this.next = true;
   this.map = map;
   this.food = food;
@@ -179,82 +178,85 @@ Snake.prototype.stop = function() {
   context.fillText(`Your score is ${this.length}`, 190, 300);
 }
 
-const Game = function(map, rapid) {
+const Game = function() {
+  this.startGame = false;
   this.interval = null;
-  this.map = map;
+  this.map = new Map();
   this.food = new Food(this.map);
-  this.snake = new Snake(this.map, this.food, rapid);
+  this.snake = new Snake(this.map, this.food);
+  this.map.draw();
+}
+
+Game.prototype.init = function(container, button) {
+  let self = this;
+
+  $(container).delegate('input', 'change', function (e) {
+    let target = $(e.target);
+    let inputClass = target.attr('class');
+    if (!self.startGame) {
+      switch (inputClass) {
+        case 'rapid':
+          self.snake.rapid = parseInt(target.value);
+          break;
+        case 'rows':
+          self.map.rows = parseInt(target[0].value);
+          context.clearRect(0, 0, width, height);
+          self.map.draw();
+          break;
+        case 'cols':
+          self.map.columns = parseInt(target[0].value);
+          context.clearRect(0, 0, width, height);
+          self.map.draw();
+          break;
+      }
+    }
+  });
+
+  $(button).on('click', function (e) {
+    self.start();
+    $(button).attr('disabled', 'true');
+  });
+
+  document.onkeydown = function (e) {
+    let event = e || window.event;
+    if (self.snake.next) {
+      self.snake.next = false;
+      switch (event.keyCode) {
+        case 37:
+          if (self.snake.direc != 39) {
+            self.snake.direc = 37;
+          }
+          break;
+        case 38:
+          if (self.snake.direc != 40) {
+            self.snake.direc = 38;
+          }
+          break;
+        case 39:
+          if (self.snake.direc != 37) {
+            self.snake.direc = 39;
+          }
+          break;
+        case 40:
+          if (self.snake.direc != 38) {
+            self.snake.direc = 40;
+          }
+          break;
+      }
+    }
+  }
 }
 
 Game.prototype.start = function() {
   let that = this;
+  this.startGame = true;
   this.map.draw();
   this.food.generate();
   this.snake.draw();
-  this.snake.start = true;
   this.interval = setInterval(function() {
     that.snake.move();
   }, this.snake.rapid);
 }
 
-var map = new Map();
-var rapid = 200;
-var game = null;
-map.draw();
-
-$('#container').delegate('input', 'change', function(e) {
-  let target = $(e.target);
-  let inputClass = target.attr('class');
-  if(!game) {
-    switch(inputClass) {
-      case 'rapid':
-        rapid = parseInt(target.value);
-        break;
-      case 'rows':
-        map.rows = parseInt(target[0].value);
-        context.clearRect(0, 0, width, height);
-        map.draw();
-        break;
-      case 'cols':
-        map.columns = parseInt(target[0].value);
-        context.clearRect(0, 0, width, height);
-        map.draw();
-        break;
-    }
-  }
-});
-
-$('.button').on('click', function(e) {
-  game = new Game(map, rapid);
-  game.start();
-  $('.button').attr('disabled', 'true');
-});
-
-document.onkeydown = function(e) {
-  let event = e || window.event;
-  if(game && game.snake.next) {
-    game.snake.next = false;
-    switch(event.keyCode) {
-      case 37:
-        if (game && game.snake.direc != 39) {
-          game.snake.direc = 37;
-        }
-        break;
-      case 38:
-        if (game && game.snake.direc != 40) {
-          game.snake.direc = 38;
-        }
-        break;
-      case 39:
-        if (game && game.snake.direc != 37) {
-          game.snake.direc = 39;
-        }
-        break;
-      case 40:
-        if (game && game.snake.direc != 38) {
-          game.snake.direc = 40;
-        }
-        break;
-    }
-  }
-}
+const game = new Game();
+game.init('#container', '.button');
