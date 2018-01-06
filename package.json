@@ -1,0 +1,22 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "Front-End daily training",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuyali/training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhuyali/training/issues"
+  },
+  "homepage": "https://github.com/zhuyali/training#readme",
+  "devDependencies": {
+    "eslint": "^4.14.0"
+  }
+}
