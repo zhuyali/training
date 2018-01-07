@@ -241,8 +241,8 @@ Game.prototype.init = function() {
   });
 
   $(`${this.controller} .button`).on('click', function (e) {
+    $(e.target).attr('disabled', 'true');
     self.start();
-    $(`${this.controller} .button`).attr('disabled', 'true');
   });
 };
 
